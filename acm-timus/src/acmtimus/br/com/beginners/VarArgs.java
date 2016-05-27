@@ -1,3 +1,5 @@
+package acmtimus.br.com.beginners;
+
 public class VarArgs {
     // Um teste que me veio a mente
     public static void print(String format, Object ... args) {
