@@ -27,16 +27,18 @@ public class TemplateComp {
 		 * http://acm.timus.ru/help.aspx?topic=java
 		 * */
 		
-		static BufferedReader reader;
-		static PrintWriter writer;
-		static StringTokenizer token;
-		static StreamTokenizer stoken;
+		private static BufferedReader reader;
+		private static PrintWriter writer;
+		private static StringTokenizer token;
+		private static StreamTokenizer stoken;
 
-		public static void init() throws IOException {
-			boolean oj = true; //System.getProperty("ONLINE_JUDGE") != null;
-			reader 		= oj ? new BufferedReader(new InputStreamReader(System.in)) : new BufferedReader(new FileReader("input.txt"));
-			writer 		= oj ? new PrintWriter(new OutputStreamWriter(System.out), true) : new PrintWriter(new FileWriter("output.txt"));
-			token	 	= null;
+		public static void init()  {
+			boolean oj 	= System.getProperty("ONLINE_JUDGE") == null;
+			try {
+				reader 		= oj ? new BufferedReader(new InputStreamReader(System.in)) : new BufferedReader(new FileReader("input.txt"));
+				writer 		= oj ? new PrintWriter(new OutputStreamWriter(System.out), true) : new PrintWriter(new FileWriter("output.txt"));
+				token 		= null;
+			} catch (IOException e) {}
 		}
 		
 		public static String read() {
@@ -115,6 +117,10 @@ public class TemplateComp {
 		}
 		
 		public static void println(String fmt, Object ... data) {
+			writer.printf(fmt, data);
+		}
+		
+		public static void println(String fmt, Object data) {
 			writer.printf(fmt, data);
 		}
 		
