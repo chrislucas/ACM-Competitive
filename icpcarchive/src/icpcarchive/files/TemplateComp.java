@@ -116,34 +116,28 @@ public class TemplateComp {
 			return array;
 		}
 		
-		public static void println(String fmt, Object ... data) {
+		public static void printf(String fmt, Object ... data) {
 			writer.printf(fmt, data);
 		}
 		
-		public static void println(String fmt, Object data) {
+		public static void printf(String fmt, Object data) {
 			writer.printf(fmt, data);
 		}
 		
 		public static void close() {
 			writer.flush();
 			writer.close();
-			/*
-			try {
-				reader.close();
-			} catch (IOException e) {}
-			*/
+			//try {reader.close();} catch (IOException e) {}
 		}
 	}
 	
 	public static void runTestIO() {
-		try {
-			IO.init();
-			while(IO.readEOF(" ")) {
-				while(IO.token.hasMoreTokens()) {
-					System.out.println(IO.token.nextToken());
-				}
+		IO.init();
+		while(IO.readEOF(" ")) {
+			while(IO.token.hasMoreTokens()) {
+				System.out.println(IO.token.nextToken());
 			}
-		} catch (IOException e) {}
+		}
 	}
 		
 	public static void main(String[] args) {
@@ -188,6 +182,7 @@ public class TemplateComp {
 		}
 		return;
 	}
+	
 	public static void ST(String address) {
 		URL url;
 		try {
