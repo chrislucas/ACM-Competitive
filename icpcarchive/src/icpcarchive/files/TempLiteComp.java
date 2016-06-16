@@ -15,7 +15,7 @@ public class TempLiteComp {
 		private static BufferedReader reader;
 		private static PrintWriter writer;
 		private static StringTokenizer token;
-		public static void init()  {
+		public static void construct()  {
 			boolean oj 	= System.getProperty("ONLINE_JUDGE") == null;
 			try {
 				reader 		= oj ? new BufferedReader(new InputStreamReader(System.in)) : new BufferedReader(new FileReader("input.txt"));
